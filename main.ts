@@ -1,16 +1,12 @@
 radio.onReceivedNumber(function (receivedNumber) {
-    let jugadores = 0
     contador += 1
     while (contador != jugadores) {
         suma += receivedNumber
     }
     if (juego == 0) {
-        let canal_recepción = 0
-        let canal_envío = 0
         radio.setGroup(canal_envío)
         radio.sendNumber(suma)
         juego = 1
-        radio.setGroup(canal_recepción)
     }
 })
 input.onGesture(Gesture.Shake, function () {
@@ -83,7 +79,12 @@ let juego = 0
 let suma_mia = 0
 let valor = 0
 let tirada = 0
-let nuestro_canal = 0
+let canal_envío = 0
+let jugadores = 0
+jugadores = 5
+let nuestro_canal = 1
+canal_envío = 2
+let canal_recepción = canal_envío
 radio.setGroup(nuestro_canal)
 tirada = 0
 valor = 0
